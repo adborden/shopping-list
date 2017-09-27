@@ -3,3 +3,5 @@ settings:
   import/resolver: webpack
 env:
   browser: yes
+rules:
+  no-underscore-dangle: 0
