@@ -54,7 +54,7 @@ class ShoppingListItemStore extends Store {
           id: this.nextId(),
           done: false,
         };
-        this.state.listItems.push(item);
+        this.state.listItems.unshift(item);
         this.__emitChange();
         break;
       }
