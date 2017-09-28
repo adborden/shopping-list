@@ -37,6 +37,9 @@ class ShoppingList extends Component {
   }
 
   render() {
+    const doneItems = this.state.shoppingList.listItems.filter(item => item.done);
+    const sortedItems = this.state.shoppingList.listItems.filter(item => !item.done);
+
     return (
       <div>
         <h1>Shopping list</h1>
@@ -46,7 +49,7 @@ class ShoppingList extends Component {
         </form>
         <ul>
           {
-            this.state.shoppingList.listItems.map(
+            sortedItems.concat(doneItems).map(
               item => <ShoppingListItem key={item.id} item={item} toggleDone={toggleDone} />,
             )
           }

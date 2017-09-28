@@ -7,8 +7,13 @@ function ShoppingListItem({ item, toggleDone }) {
     toggleDone(item, e.target.checked);
   }
 
+  const classes = ['list-item'];
+  if (item.done) {
+    classes.push('done');
+  }
+
   return (
-    <li>
+    <li className={classes.join(' ')}>
       <input type="checkbox" value={item.id} name={item.id} checked={item.done} onChange={onDone} />
       <label htmlFor={item.id}>
         { item.description }
