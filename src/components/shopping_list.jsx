@@ -25,6 +25,10 @@ function toggleDone(item, done) {
   listItem.doListItem(item, !done);
 }
 
+function reorder(from, to) {
+  listItem.moveListItem(from, to);
+}
+
 class ShoppingList extends Component {
   static getStores() {
     return [shoppingListItemStore];
@@ -50,7 +54,12 @@ class ShoppingList extends Component {
         <ul>
           {
             sortedItems.concat(doneItems).map(
-              item => <ShoppingListItem key={item.id} item={item} toggleDone={toggleDone} />,
+              item => <ShoppingListItem
+                key={item.id}
+                item={item}
+                onReorder={reorder}
+                toggleDone={toggleDone}
+              />,
             )
           }
         </ul>

@@ -3,6 +3,7 @@ const types = {
   LIST_ITEM_ADD: 'LIST_ITEM_ADD',
   LIST_ITEM_DO: 'LIST_ITEM_DO',
   LIST_ITEM_REMOVE: 'LIST_ITEM_REMOVE',
+  LIST_ITEM_MOVE: 'LIST_ITEM_MOVE',
 };
 
 function ListItem({ dispatcher }) {
@@ -34,6 +35,17 @@ function ListItem({ dispatcher }) {
 
       // TODO This doesn't seem quite right, maybe fetch from the store?
       return Promise.resolve(!undo);
+    },
+
+    moveListItem(from, to) {
+      console.log(from, to);
+      dispatcher.dispatch({
+        type: types.LIST_ITEM_MOVE,
+        from,
+        to,
+      });
+
+      return Promise.resolve();
     },
   };
 }

@@ -75,6 +75,21 @@ class ShoppingListItemStore extends Store {
         break;
       }
 
+      case types.LIST_ITEM_MOVE: {
+        debugger;
+        const { from, to } = payload; // these are ids, not positions
+        const fromIdx = this.state.listItems.findIndex(item => item.id == from);
+        let toIdx = this.state.listItems.findIndex(item => item.id == to);
+        if (fromIdx < toIdx) {
+          toIdx -= 1;
+        }
+
+        const [item] = this.state.listItems.splice(fromIdx, 1);
+        this.state.listItems.splice(toIdx, 0, item);
+        this.__emitChange();
+        break;
+      }
+
       default:
         break;
     }
