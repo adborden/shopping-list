@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Dispatcher } from 'flux';
 import { Container } from 'flux/utils';
 
@@ -54,12 +53,12 @@ class ShoppingList extends Component {
         <ul>
           {
             sortedItems.concat(doneItems).map(
-              item => <ShoppingListItem
+              item => (<ShoppingListItem
                 key={item.id}
                 item={item}
                 onReorder={reorder}
                 toggleDone={toggleDone}
-              />,
+              />),
             )
           }
         </ul>

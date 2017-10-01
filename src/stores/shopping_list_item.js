@@ -76,10 +76,9 @@ class ShoppingListItemStore extends Store {
       }
 
       case types.LIST_ITEM_MOVE: {
-        debugger;
         const { from, to } = payload; // these are ids, not positions
-        const fromIdx = this.state.listItems.findIndex(item => item.id == from);
-        let toIdx = this.state.listItems.findIndex(item => item.id == to);
+        const fromIdx = this.state.listItems.findIndex(item => item.id === from);
+        let toIdx = this.state.listItems.findIndex(item => item.id === to);
         if (fromIdx < toIdx) {
           toIdx -= 1;
         }

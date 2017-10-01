@@ -38,7 +38,6 @@ function ListItem({ dispatcher }) {
     },
 
     moveListItem(from, to) {
-      console.log(from, to);
       dispatcher.dispatch({
         type: types.LIST_ITEM_MOVE,
         from,

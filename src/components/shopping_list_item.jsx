@@ -14,8 +14,8 @@ function ShoppingListItem({ item, toggleDone, onReorder }) {
 
   function onDrop(e) {
     e.preventDefault();
-    const itemId = e.dataTransfer.getData('text');
-    if (itemId == item.id) {
+    const itemId = parseInt(e.dataTransfer.getData('text'), 10);
+    if (itemId === item.id) {
       return;
     }
 
@@ -50,7 +50,7 @@ function ShoppingListItem({ item, toggleDone, onReorder }) {
 }
 
 ShoppingListItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.shape({ id: PropTypes.number, description: PropTypes.string }).isRequired,
   onReorder: PropTypes.func,
   toggleDone: PropTypes.func,
 };

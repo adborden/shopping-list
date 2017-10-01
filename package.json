@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "lint": "eslint .",
+    "lint": "eslint --ext jsx,js src",
     "test": "npm run lint",
     "start": "node ./bin/www",
     "watch:webpack": "webpack --watch",
